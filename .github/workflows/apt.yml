@@ -88,7 +88,7 @@ jobs:
     - name: Prepare sbuild environment
       run: sudo ./setup_sbuild.sh ${{ matrix.dist }} ${{ env.BUILD_ARCH }}
     - name: Get source package
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: source-${{ matrix.dist }}
     - name: Build binary package
@@ -120,7 +120,7 @@ jobs:
       env:
         APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
     - name: Get binary packages
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
     - name: Setup ruby
       uses: actions/setup-ruby@v1
       with:
